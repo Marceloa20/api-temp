@@ -14,6 +14,13 @@ btnBusca.addEventListener('click', (e) => {
     buscarCidade(cidadeDigitada);
 })
 
+// EVENTO TECLA ENTER
+inputDado.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        btnBusca.click();
+    }
+});
+
 async function buscarCidade(cidadeDigitada) {
     const dados = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidadeDigitada}&appid=${keyApi}&lang=pt_br&units=metric`)
     .then(response => response.json());
